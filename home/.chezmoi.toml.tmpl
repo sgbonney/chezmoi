@@ -1,0 +1,20 @@
+{{- /* -*- mode: conf-toml -*- */ -}}
+
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+[data]
+    osid = {{ $osid | quote }}
+    name = "Samuel Bonney"
+    handle = "sbonney"
+
+[hooks.read-source-state.pre]
+    command = "{{- .chezmoi.homeDir -}}/.local/share/chezmoi/home/.install-password-manager.sh"
+
+[keepassxc]
+    database = "{{- .chezmoi.homeDir -}}/.keepass/passwords.kdbx"
+
+[template]
+    options = ["missingkey=zero"]

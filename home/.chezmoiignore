@@ -1,0 +1,40 @@
+{{- if not (contains "android" .osid) }}
+.config/dev.imranr.obtainium
+.config/helium314.keyboard
+.config/juloo.keyboard2
+.config/keepassxc
+.local/share/android
+.local/share/mime
+**/obtainium.sh
+.termux
+{{- end }}
+
+{{- if not (or (contains "android" .osid) (contains "fedora" .osid)) }}
+.codegen
+.emacs.d
+{{- end }}
+
+{{- if not (contains "linux" .osid) }}
+.config/autostart
+.config/systemd
+**/keepassxc-cli
+.local/share/applications
+.local/share/icons
+.var
+{{- end }}
+
+{{- if not (or (contains "debian" .osid) (contains "fedora" .osid)) }}
+**/deduplication.sh
+{{- end }}
+
+{{- if not (contains "fedora" .osid) }}
+.config/input-remapper-2
+Documents
+**/emacs.*
+**/org.gnome.TextEditor
+**/restart-emacs.sh
+{{- end }}
+
+{{- if not (contains "steamos" .osid) }}
+.local/share/Steam
+{{- end }}
