@@ -1,5 +1,16 @@
 #!/bin/bash
 
+if [[ "$OSTYPE" == *"android"* ]]; then
+    if [ ! -L ~/Documents ]; then
+	ln -s /storage/emulated/0/Documents ~/Documents || { echo "Failed to create Documents symbolic link."; exit 1; }
+    fi
+fi
+
+if [ ! -d "$HOME/Documents/chezmoi" ]; then
+    echo "Missing $HOME/Documents/chezmoi — aborting."
+    exit 1
+fi
+
 eval_append() {
     [ -f "$HOME/.bashrc" ] || touch "$HOME/.bashrc"
     eval "$1"
