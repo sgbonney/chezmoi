@@ -5,3 +5,9 @@ Installation (linux/android):
 ```console
 bash <(curl -fsSL https://raw.githubusercontent.com/sgbonney/chezmoi/main/install.sh) init --apply sgbonney/chezmoi
 ```
+
+After (re-run):
+
+```console
+chezmoi apply
+```
