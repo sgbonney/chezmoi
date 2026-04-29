@@ -1,1 +1,1 @@
-{{- output "bash" "-c" (printf "find -L ~ \\( -path '%s' \\) -prune -o -path '*/%s*' -print -quit" (list "*/.local/share/chezmoi" | toStrings | join "' -o -path '") (includeTemplate "denote/timestamp" . )) | trim -}}
+{{- output "bash" "-c" (printf "find -L ~ \\( -path '%s' \\) -prune -o -path '*/%s*' -print -quit" (list "*/.local/share/chezmoi" | toStrings | join "' -o -path '") ( . | replaceAllRegex `^\[\[denote:(.*)\]\]$` "$1" )) | trim -}}
