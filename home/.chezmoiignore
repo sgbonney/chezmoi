@@ -1,11 +1,7 @@
 {{- if not (contains "android" .osid) }}
-.config/dev.imranr.obtainium
-.config/helium314.keyboard
-.config/juloo.keyboard2
 .config/keepassxc
 .local/share/android
 .local/share/mime
-**/obtainium.sh
 .termux
 {{- end }}
 
